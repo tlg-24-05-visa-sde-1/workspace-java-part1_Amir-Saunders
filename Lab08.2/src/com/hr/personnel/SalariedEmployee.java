@@ -33,4 +33,8 @@ public class SalariedEmployee extends Employee {
     public void pay(){
         System.out.println(super.getName() + " paid " + salary);
     }
+
+    public void takeVacation(){
+        System.out.printf("%s is on vacation",getName());
+    }
 }

@@ -8,10 +8,7 @@
 
 package com.hr.personnel.client;
 
-import com.hr.personnel.Department;
-import com.hr.personnel.Employee;
-import com.hr.personnel.HourlyEmployee;
-import com.hr.personnel.SalariedEmployee;
+import com.hr.personnel.*;
 
 import java.time.LocalDate;
 
@@ -34,6 +31,7 @@ class HRClient {
         dept.addEmployee(hr1);
 //        the addEmplyee method in departemnt takes an employee object as the arguement and salariedemployee and hourly employee extend employee whwihc means it's recognized as an employee object' it adds it to theemplyee array which is afield in the department class.
 
+        dept.addEmployee(new Executive("jay", LocalDate.of(2020,2,2), 1_500_00));
 
 
         System.out.println("\nList employees:");

@@ -8,6 +8,9 @@
  
 package gov.irs;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * The IRS maintains a collection of TaxPayers and collects taxes from them.
  *
@@ -15,17 +18,18 @@ package gov.irs;
  */
 public class IRS {
     // what types of objects can this array contain?
-    private TaxPayer[] payers = new TaxPayer[100];
-    private int currentIndex = 0;  // for dealing with the array
+//    private TaxPayer[] payers = new TaxPayer[100];
+//    private int currentIndex = 0;  // for dealing with the array
+    private Collection<TaxPayer> taxPay = new ArrayList<>();
+
 
     public void collectTaxes() {
-        for (int i = 0; i < currentIndex; i++) {
-            double deduction = payers[i].getStandardDeduction();
+        for (TaxPayer taxP : taxPay) {
+            double deduction = taxP.getStandardDeduction();
         /*   The ggetStandardDeduction method comes from the TaxPayer interface and payers is an array of texpayers so it has access to the methods in the TaxPayer  interface.*/
             System.out.println("Tax payers deduction is " + deduction);
-            payers[i].payTaxes();
+            taxP.payTaxes();
 //            payers[i].getName();
-//            You can't do getname becasue the interface taxpapers does not have a get name method'
 
         }
     }
@@ -33,6 +37,7 @@ public class IRS {
     // helper method to add a TaxPayer to the array
     // what types of objects can be passed to this method?
     public void register(TaxPayer payer) {
-        payers[currentIndex++] = payer;
+        taxPay.add(payer);
+//        collections and array list have methods like add that you can use to add things to the collection
     }
 }

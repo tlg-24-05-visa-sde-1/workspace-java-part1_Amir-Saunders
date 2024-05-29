@@ -56,6 +56,5 @@ class HRClient {
         dept.listEmployees();
         dept.workEmployees();
 //        This would ouput the same for the regualr emmployees and the classes that extend employees hourly and salary because there is no overidding metho in hourly or salary but only in the parent class employees
-        System.out.println( se1.getStandardDeduction());
     }
 }
