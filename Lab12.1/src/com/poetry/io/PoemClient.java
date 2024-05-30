@@ -8,9 +8,7 @@
 
 package com.poetry.io;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class PoemClient {
 
@@ -19,7 +17,7 @@ public class PoemClient {
      */
     public static void main(String[] args) {
          readPoem();
-        // writePoem();
+//         writePoem();
     }
 
     /**
@@ -37,10 +35,17 @@ public class PoemClient {
     private static void readPoem() {
 
         String file = "Lab12.1/famous-poem.txt";
+//        The file path pf the poem that we want to be read
         // TODO: initialize 'reader' variable and complete the try block
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader buffer = new BufferedReader(new FileReader(file))) {
+
+           /* BufferedReader is used to read text from a character-input stream (like a file), and it's initialized with a FileReader object, which reads characters from a file.
+            The FileReader is initialized with the file path stored in the file variable. Essentially the line above is used to read the file path that you stored in a varaible called file*/
             String poem;
-        while((poem = reader.readLine()) != null){
+        while((poem = buffer.readLine()) != null){
+            /*
+                 the read line method is used to read the next line of what the buffer read. Buffer is the varible name of the BufferReader object that is written above and buffer.readLine() reads what's in the buffer. In the while statement the buffer.readline() is stored in the poem variable and while it's npt equl to null it reads the next line and then when there are no lines and it returns null the loops stops signaling the end of the text in the file.
+             */
             System.out.println(poem);
         }
 
@@ -64,5 +69,20 @@ public class PoemClient {
      */
     private static void writePoem() {
         // TODO
+        String file2 = "Lab12.1/haiku.txt";
+        /*THis is the path where the poem will be written and the file will be created when the code is ran if it does not exsist. If the file does exsisit it will overwrite any text that is inside the file already */
+
+        try(FileWriter fileWriter = new FileWriter(file2);
+            /*FileWriter points to the file and establishes a connection to the fiile that needs to be written in, and it's initialized with the file path stored in file2. Will write to file 2*/
+            PrintWriter printWriter = new PrintWriter(fileWriter)){
+//            PrintWriter does the actual writing to the file and points to filewriter that esblished the connection to the file im writing to
+            printWriter.println("In shadows he stands, \n");
+            printWriter.println("Yuji Itadori, the light, \n");
+            printWriter.println("Heart ablaze, he fights. \n");
+//            These are the lines that will be written above
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
     }
 }

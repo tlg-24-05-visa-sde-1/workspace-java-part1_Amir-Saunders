@@ -28,7 +28,7 @@ public class HourlyEmployee extends Employee {
 
     public HourlyEmployee(String name, LocalDate hireDate, double rate, double hours) throws IllegalWageException {
         this(name, hireDate);
-        /* throws IllegalWageException on the line where im declaring setRate  is from the class IllegalWageeException class that extnds execption. This is called a checked exception if you have a checked exception meaning it came from a class that extends exception in this case is the class IllegalWageException */
+        /* throws IllegalWageException on the line where im declaring setRate  is from the class IllegalWageeException class that extnds execption. This is called a checked exception if you have a checked exception meaning it came from a class that extends exception in this case is the class IllegalWageException and checked exceptions are a subclasses of Exception but not subclasses of RuntimeException.*/
         if(rate < FEDERAL_MINIMUM_WAGE) {
             throw new IllegalWageException("Illegal wage is: " + rate + " Federal minimum wage is " + FEDERAL_MINIMUM_WAGE);
             /*To find where set rate is being used right click it and hit find usages
