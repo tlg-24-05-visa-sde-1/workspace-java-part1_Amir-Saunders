@@ -33,7 +33,7 @@ class HRClient {
             dept.addEmployee(new SalariedEmployee("Amilia", LocalDate.of(1999, 2, 6), 1250.0));
             dept.addEmployee(new HourlyEmployee("Logan", LocalDate.of(2002, 6, 2), 40.0, 40.0));
         } catch (IllegalWageException e) {
-            System.out.println("   ERROR:  " + e);
+            System.out.println("   ERROR:  " + e.getMessage());
         }
         /*I put the declaring of new objects inside a try catch because. HourlyEmployee is throwing a checked exception called IllegalWageException in the constructor. This means that when you instantiate a new hourly employee it has to go inside a try catch block it looks like this public HourlyEmployee(String name, LocalDate hireDate, double rate, double hours) throws IllegalWageException*/
 
