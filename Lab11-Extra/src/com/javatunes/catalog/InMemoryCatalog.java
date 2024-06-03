@@ -38,6 +38,46 @@ public class InMemoryCatalog implements Catalog {
         new MusicItem(18L, "Escape",                    "Journey",                   "1981-02-25", 11.97, MusicCategory.CLASSIC_ROCK))
     );
 
+    @Override
+    public MusicItem findById(Long id) {
+        MusicItem item = null;
+        for(MusicItem currentItem : catalogData){
+            if(currentItem.getId().equals(id)){
+//                We use .equals to compare an object instead of the double equals which uses reference comparison
+//                We use the getter in the ifstatement from MusicItem to get the id and then .equals to compare it to the input id
+                item = currentItem;
+            }
+        }
+        return item;
+    }
+
+    @Override
+    public Collection<MusicItem> findByKeyword(String keyword) {
+        return List.of();
+    }
+
+    @Override
+    public Collection<MusicItem> findByCategory(MusicCategory category) {
+       Collection<MusicItem> result = new ArrayList<>();
+
+       for(MusicItem items : catalogData){
+           if(items.getMusicCategory().equals(category)){
+               result.add(items);
+           }
+       }
+       return result;
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    @Override
+    public Collection<MusicItem> getAll() {
+        return List.of();
+    }
+
 
     /**
      * After you've satisfied your contractual obligations above, do these additional tasks.
@@ -65,27 +105,68 @@ public class InMemoryCatalog implements Catalog {
      * TASK: find all MusicItems where title is same as artist.
      * For example, Madonna's first album is simply titled, "Madonna."
      */
+        public Collection<MusicItem>findSelfTitled(){
+            Collection<MusicItem> result = new ArrayList<>();
+            for(MusicItem item : catalogData){
+                if(item.getTitle().equals(item.getArtist())){
+                    result.add(item);
+                }
+            }
+            return result;
+        }
 
 
     /**
      * TASK: find all "rock" items whose price is less than or equal to the specified price.
      */
-
+        public Collection<MusicItem> cheapRock(double price){
+            Collection<MusicItem> result = new ArrayList<>();
+            for(MusicItem item : catalogData){
+                if(item.getPrice() <= price){
+                    result.add(item);
+                }
+            }
+            return result;
+        }
 
     /**
      * TASK: how many items of the specified genre (MusicCategory) do we sell?
      */
+    public int genreCount(MusicCategory category){
+        Collection<MusicItem> result = new ArrayList<>();
+        for(MusicItem item : catalogData){
+            if(item.getMusicCategory().equals(category)){
+                result.add(item);
+            }
+        }
+       return result.size();
+    }
 
 
     /**
      * TASK: determine average price of our low-cost, extensive catalog of music.
      */
 
+    public double averagePrice(){
+        double addedItems = 0.0;
+        int length = catalogData.size();
+        System.out.println(length);
+
+        for(MusicItem item : catalogData){
+
+            addedItems += item.getPrice();
+
+        }
+        System.out.println(addedItems);
+        return addedItems/length;
+
+    }
+
 
     /**
      * TASK: find the cheapest item with the specified genre (MusicCategory).
      */
-
+    
 
     /**
      * TASK: find the average price of items in the specified genre (MusicCategory).
@@ -96,6 +177,8 @@ public class InMemoryCatalog implements Catalog {
      * TASK: are all items priced at least $10?
      * This is a yes/no answer.
      */
+
+
 
 
     /**

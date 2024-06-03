@@ -2,7 +2,7 @@ package edu.geometry.client;
 
 import edu.geometry.Circle;
 import edu.geometry.Rectangle;
-import edu.geometry.Shapes;
+import edu.geometry.Shape;
 import edu.geometry.Triangle;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class ShapeClient {
 
     public static void main(String[] args) {
 
-        Collection<Shapes> numberOfShapes = new ArrayList<>();
+        Collection<Shape> numberOfShapes = new ArrayList<>();
 
         Circle circle = new Circle(12.5,"blue",5.0);
         Rectangle rectangle = new Rectangle(12.5,10.5);
@@ -22,6 +22,8 @@ public class ShapeClient {
         numberOfShapes.add(rectangle);
         numberOfShapes.add(triangle);
         System.out.println(numberOfShapes.size());
+
+
 
 
     }

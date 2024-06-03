@@ -1,8 +1,6 @@
 package edu.geometry;
 
-import java.awt.*;
-
-public class Rectangle implements Shapes {
+public class Rectangle implements Shape {
 
     private double length;
     private double width;

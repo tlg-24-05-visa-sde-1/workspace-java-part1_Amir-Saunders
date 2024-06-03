@@ -1,9 +1,6 @@
 package edu.geometry;
 
-import java.awt.*;
-import edu.geometry.client.ShapeClient;
-
-public class Circle implements Shapes {
+public class Circle implements Shape {
 
     private double radius;
     private String color;

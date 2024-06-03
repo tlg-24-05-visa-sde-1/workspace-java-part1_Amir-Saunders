@@ -1,8 +1,6 @@
 package edu.geometry;
 
-import java.awt.*;
-
-public class Triangle implements Shapes {
+public class Triangle implements Shape {
 
     private double base;
     private double height;

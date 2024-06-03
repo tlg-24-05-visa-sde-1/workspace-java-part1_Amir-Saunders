@@ -1,6 +1,6 @@
 package edu.geometry;
 
-public interface Shapes {
+public interface Shape {
 
     public double calculateArea();
 
